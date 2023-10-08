@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -33,6 +34,7 @@ import lombok.Setter;
                                * Gera métodos equals() e hashCode() usando apenas o campo 'id' para
                                * comparação.
                                */
+@NoArgsConstructor
 public class Transaction {
 
     @Id // Indica que o campo anotado é a chave primária da entidade no banco de dados.
