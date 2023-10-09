@@ -2,10 +2,13 @@ package com.picpaysimplicado.domain.user;
 
 import java.math.BigDecimal;
 
+import com.picpaysimplicado.dtos.UserDTO;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -23,6 +26,7 @@ import lombok.Setter;
                                * Gera métodos equals() e hashCode() usando apenas o campo 'id' para
                                * comparação.
                                */
+@NoArgsConstructor
 public class User {
 
     @Id // ndica que o campo anotado é a chave primária da entidade no banco de dados.
@@ -42,4 +46,15 @@ public class User {
                                   * representando a enumeração.
                                   */
     private UserType userType;
+
+    public User(UserDTO data) {
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
+        this.balance = data.balance();
+        this.userType = data.userType();
+        this.password = data.password();
+        this.email = data.email();
+        this.document = data.document();
+    }
+
 }
