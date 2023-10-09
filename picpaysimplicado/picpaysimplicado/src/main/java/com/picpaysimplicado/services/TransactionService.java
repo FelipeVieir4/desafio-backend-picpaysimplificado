@@ -2,13 +2,13 @@ package com.picpaysimplicado.services;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Map;
+// import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+// import org.springframework.http.HttpStatus;
+// import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+//import org.springframework.web.client.RestTemplate;
 
 import com.picpaysimplicado.domain.transaction.Transaction;
 import com.picpaysimplicado.domain.user.User;
@@ -24,11 +24,11 @@ public class TransactionService {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private RestTemplate restTemplate;
+    // @Autowired
+    // private RestTemplate restTemplate;
 
-    @Autowired
-    private NotificationService notificationService;
+    // @Autowired
+    // private NotificationService notificationService;
 
     public Transaction createTransaction(TransactionDTO transaction) throws Exception {
         User sender = this.userService.findUserById(transaction.senderId());
@@ -54,8 +54,10 @@ public class TransactionService {
         this.repository.save(newTransaction);
         this.userService.saveUser(receiver);
         this.userService.saveUser(sender);
-        // this.notificationService.sendNotification(sender, "Transação realizada com sucesso");
-        // this.notificationService.sendNotification(receiver, "Transação recebida com sucesso");
+        // this.notificationService.sendNotification(sender, "Transação realizada com
+        // sucesso");
+        // this.notificationService.sendNotification(receiver, "Transação recebida com
+        // sucesso");
 
         return newTransaction;
 
@@ -64,11 +66,12 @@ public class TransactionService {
     // consultando serviço externo
     public boolean authorizeTransaction(User sender, BigDecimal value) {
         // String url = "https://url.....";
-        // ResponseEntity<Map> authorizationResponse = restTemplate.getForEntity(url, Map.class);
+        // ResponseEntity<Map> authorizationResponse = restTemplate.getForEntity(url,
+        // Map.class);
 
         // if (authorizationResponse.getStatusCode() == HttpStatus.OK) {
-        //     String message = (String) authorizationResponse.getBody().get("message");
-        //     return "Autorizado".equalsIgnoreCase(message);
+        // String message = (String) authorizationResponse.getBody().get("message");
+        // return "Autorizado".equalsIgnoreCase(message);
         // }
 
         return true;
